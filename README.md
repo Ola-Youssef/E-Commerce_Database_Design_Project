@@ -133,6 +133,7 @@ ORDER BY total_units_sold DESC;
 ```
 ![Query Output](Best_Selling_in_April.png)
 
+```sql
 /* Write a SQL query to retrieve a list of customers who have placed orders totaling
 more than $500 in the past month.Include customer names and their total order amounts.*/
 
@@ -152,4 +153,7 @@ GROUP BY
     c.last_name
 HAVING 
     SUM(o.total_amount) > 500;
+```
+![Query Output](High-value customers..png)
+
 
