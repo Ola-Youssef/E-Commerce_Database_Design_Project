@@ -1,6 +1,6 @@
 ## E-Commerce Database Design Project
 
-## 1-Project Description
+## 1. Project Description
 
 This project represents a simplified E-Commerce Database System designed to manage customers, products, orders, and order details.
 It demonstrates key database design concepts such as entity modeling, relationships, normalization, ERD creation, and SQL query development.
@@ -12,7 +12,7 @@ It demonstrates key database design concepts such as entity modeling, relationsh
 - [Database Schema Scripts](#database-schema-scripts)
 - [SQL Queries](#sql-queries)
 
-## 3.Relationships Between Entities 
+## 3. Relationships Between Entities 
 -Customer (1) ─────── (M) Order
 One customer can place many orders.
 
@@ -24,3 +24,5 @@ One product can appear in many order details.
 
 -Order (M) ─────── (M) Product
 Many-to-Many (resolved via Order_Details table)
+
+## 4. ERD Diagram
