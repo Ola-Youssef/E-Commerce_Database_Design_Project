@@ -12,6 +12,7 @@ It demonstrates key database design concepts such as entity modeling, relationsh
 - [Database Schema Scripts](#database-schema-scripts)
 - [Inserted Data](#inserted-data)
 - [SQL Queries](#sql-queries)
+- [Denormalization](#denormalization)
 
 ## 3. Relationships Between Entities 
 -Customer (1) ─────── (M) Order
@@ -155,5 +156,12 @@ HAVING
     SUM(o.total_amount) > 500;
 ```
 ![Query Output](High_value_customers.png)
+
+
+## 8. How we can apply a denormalization mechanism on customer and order entities?
+
+Denormalization is used to improve database performance by reducing the number of joins. 
+In this case, we can store frequently used customer data such as name and email in the Orders table to simplify queries and improve retrieval speed.
+
 
 
