@@ -26,3 +26,4 @@ One product can appear in many order details.
 Many-to-Many (resolved via Order_Details table)
 
 ## 4. ERD Diagram
+![ER Diagram](ER_Diagram.png)
