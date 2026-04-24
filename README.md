@@ -117,7 +117,7 @@ FROM [Order]
 WHERE order_date = '2026-04-01'
 GROUP BY order_date;
 ```
-![Query Output](Total_revenue.png)
+![Query Output](queries-output/Total_revenue.png)
 
 ```sql
 --Write an SQL query to generate a monthly report of the top-selling products in a given month.
@@ -131,7 +131,7 @@ WHERE [Order].order_date >= '2026-04-01'
 GROUP BY product.name
 ORDER BY total_units_sold DESC;
 ```
-![Query Output](Best_Selling_in_April.png)
+![Query Output](queries-output/Best_Selling_in_April.png)
 
 ```sql
 /* Write a SQL query to retrieve a list of customers who have placed orders totaling
@@ -154,7 +154,7 @@ GROUP BY
 HAVING 
     SUM(o.total_amount) > 500;
 ```
-![Query Output](High_value_customers.png)
+![Query Output](queries-output/High_value_customers.png)
 
 
 ## 8. How we can apply a denormalization mechanism on customer and order entities?
