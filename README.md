@@ -29,7 +29,7 @@ Many-to-Many (resolved via Order_Details table)
 ![ER Diagram](ER_Diagram.png)
 
 ## 5. Schema Scripts
-```use [E-Commerce_DB_Design]
+USE [E-Commerce_DB_Design];
 
 CREATE TABLE Category (
     category_id INT PRIMARY KEY,
@@ -43,7 +43,6 @@ CREATE TABLE Product (
     description VARCHAR(255),
     price DECIMAL(10,2),
     stock_quantity INT,
-
     FOREIGN KEY (category_id) REFERENCES Category(category_id)
 );
 
@@ -60,7 +59,6 @@ CREATE TABLE [Order] (
     customer_id INT,
     order_date DATE,
     total_amount DECIMAL(10,2),
-
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
@@ -68,9 +66,5 @@ CREATE TABLE Order_Details (
     order_detail_id INT PRIMARY KEY,
     order_id INT,
     product_id INT,
-    quantity INT,
-    unit_price DECIMAL(10,2),
-
-    FOREIGN KEY (order_id) REFERENCES [Order](order_id),
-    FOREIGN KEY (product_id) REFERENCES Product(product_id)
+    quantity INT
 );
