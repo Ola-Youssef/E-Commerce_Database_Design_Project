@@ -130,6 +130,8 @@ WHERE [Order].order_date >= '2026-04-01'
   AND [Order].order_date < '2026-05-01'
 GROUP BY product.name
 ORDER BY total_units_sold DESC;
+```
+![Query Output](Best_Selling_in_April.png)
 
 /* Write a SQL query to retrieve a list of customers who have placed orders totaling
 more than $500 in the past month.Include customer names and their total order amounts.*/
