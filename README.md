@@ -2,8 +2,7 @@
 
 ## 1. Project Description
 
-This project represents a simplified E-Commerce Database System designed to manage customers, products, orders, and order details.
-It demonstrates key database design concepts such as entity modeling, relationships, normalization, ERD creation, and SQL query development.
+This project presents a simplified e-commerce database system that manages customers, products, and orders while demonstrating essential database design concepts, including data modeling, relationships, ERD design, SQL development and denormalization.
 
 ## 2. Table of Contents
 
