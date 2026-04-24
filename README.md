@@ -10,6 +10,7 @@ It demonstrates key database design concepts such as entity modeling, relationsh
 - [Relationships Between Entities](#relationships-between-entities)
 - [ERD Diagram](#erd-diagram)
 - [Database Schema Scripts](#database-schema-scripts)
+- [Inserted Data](#inserted-data)
 - [SQL Queries](#sql-queries)
 
 ## 3. Relationships Between Entities 
@@ -75,3 +76,75 @@ CREATE TABLE Order_Details (
     FOREIGN KEY (order_id) REFERENCES [Order](order_id),
     FOREIGN KEY (product_id) REFERENCES Product(product_id)
 );
+
+## 6. Inserted Data
+```sql
+use [E-Commerce_DB_Design]
+
+insert into Category  values
+(1, 'Electronics'),
+(2, 'Books'),
+(3, 'Furniture');
+ 
+INSERT INTO Product VALUES
+(1, 1, 'Laptop', 'Gaming laptop', 1000, 10),
+(2, 1, 'Phone', 'Smartphone', 600, 20),
+(3, 2, 'Book SQL', 'Database book', 50, 100);
+
+INSERT INTO Customer VALUES
+(1, 'Ola', 'Youssef', 'ola@gmail.com', '123'),
+(2, 'Rana', 'Ali', 'rana@gmail.com', '456');
+
+INSERT INTO [Order] VALUES
+(1, 1, '2026-04-01', 1600),
+(2, 1, '2026-04-10', 50),
+(3, 2, '2026-04-15', 600);
+
+INSERT INTO Order_Details VALUES
+(1, 1, 1, 1, 1000),
+(2, 1, 2, 1, 600),
+(3, 2, 3, 1, 50),
+(4, 3, 2, 1, 600);
+
+## 7. SQL Queries
+```sql
+--Write an SQL query to generate a daily report of the total revenue for a specific date.
+
+SELECT order_date, SUM(total_amount)
+FROM [Order]
+WHERE order_date = '2026-04-01'
+GROUP BY order_date;
+
+![Query Outpu](Total_revenu.png)
+
+--Write an SQL query to generate a monthly report of the top-selling products in a given month.
+
+SELECT product.name, SUM(order_details.quantity) AS total_units_sold
+FROM order_details
+JOIN product ON order_details.product_id = product.product_id
+JOIN [Order] ON order_details.order_id = [Order].order_id
+WHERE [Order].order_date >= '2026-04-01'
+  AND [Order].order_date < '2026-05-01'
+GROUP BY product.name
+ORDER BY total_units_sold DESC;
+
+/* Write a SQL query to retrieve a list of customers who have placed orders totaling
+more than $500 in the past month.Include customer names and their total order amounts.*/
+
+SELECT 
+    c.customer_id,
+    c.first_name,
+    c.last_name,
+    SUM(o.total_amount) AS total_spent
+FROM Customer c
+JOIN [Order] o 
+    ON c.customer_id = o.customer_id
+WHERE 
+    o.order_date >= DATEADD(MONTH, -1, GETDATE())
+GROUP BY 
+    c.customer_id,
+    c.first_name,
+    c.last_name
+HAVING 
+    SUM(o.total_amount) > 500;
+
