@@ -116,9 +116,10 @@ SELECT order_date, SUM(total_amount)
 FROM [Order]
 WHERE order_date = '2026-04-01'
 GROUP BY order_date;
-
+```
 ![Query Output](Total_revenue.png)
 
+```sql
 --Write an SQL query to generate a monthly report of the top-selling products in a given month.
 
 SELECT product.name, SUM(order_details.quantity) AS total_units_sold
