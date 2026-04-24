@@ -1,4 +1,4 @@
-## E-Commerce Database Design Project
+## E-Commerce Database Design 
 
 ## 1. Project Description
 
