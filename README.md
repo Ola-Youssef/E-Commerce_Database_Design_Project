@@ -76,6 +76,7 @@ CREATE TABLE Order_Details (
     FOREIGN KEY (order_id) REFERENCES [Order](order_id),
     FOREIGN KEY (product_id) REFERENCES Product(product_id)
 );
+```
 
 ## 6. Inserted Data
 ```sql
@@ -105,6 +106,7 @@ INSERT INTO Order_Details VALUES
 (2, 1, 2, 1, 600),
 (3, 2, 3, 1, 50),
 (4, 3, 2, 1, 600);
+```
 
 ## 7. SQL Queries
 ```sql
@@ -115,7 +117,7 @@ FROM [Order]
 WHERE order_date = '2026-04-01'
 GROUP BY order_date;
 
-![Query Outpu](Total_revenu.png)
+![Query Output](Total_revenue.png)
 
 --Write an SQL query to generate a monthly report of the top-selling products in a given month.
 
