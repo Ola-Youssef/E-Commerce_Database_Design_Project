@@ -27,3 +27,50 @@ Many-to-Many (resolved via Order_Details table)
 
 ## 4. ERD Diagram
 ![ER Diagram](ER_Diagram.png)
+
+## 5. Schema Scripts
+use [E-Commerce_DB_Design]
+
+CREATE TABLE Category (
+    category_id INT PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Product (
+    product_id INT PRIMARY KEY,
+    category_id INT,
+    name VARCHAR(100),
+    description VARCHAR(255),
+    price DECIMAL(10,2),
+    stock_quantity INT,
+
+    FOREIGN KEY (category_id) REFERENCES Category(category_id)
+);
+
+CREATE TABLE Customer (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(100)
+);
+
+CREATE TABLE [Order] (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10,2),
+
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+);
+
+CREATE TABLE Order_Details (
+    order_detail_id INT PRIMARY KEY,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    unit_price DECIMAL(10,2),
+
+    FOREIGN KEY (order_id) REFERENCES [Order](order_id),
+    FOREIGN KEY (product_id) REFERENCES Product(product_id)
+);
