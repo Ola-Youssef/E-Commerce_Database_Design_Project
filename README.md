@@ -29,6 +29,7 @@ Many-to-Many (resolved via Order_Details table)
 ![ER Diagram](ER_Diagram.png)
 
 ## 5. Schema Scripts
+```
 USE [E-Commerce_DB_Design];
 
 CREATE TABLE Category (
