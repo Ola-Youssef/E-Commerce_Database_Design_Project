@@ -154,6 +154,6 @@ GROUP BY
 HAVING 
     SUM(o.total_amount) > 500;
 ```
-![Query Output](High-value customers.png)
+![Query Output](High_value_customers.png)
 
 
